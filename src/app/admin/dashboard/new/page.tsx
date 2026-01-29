@@ -44,11 +44,11 @@ export default function NewAutomation() {
                 <Link href="/admin/dashboard/automations" className="flex items-center gap-2 text-white/40 hover:text-neon-blue transition-colors text-[10px] font-bold uppercase tracking-widest">
                     <ChevronLeft className="w-4 h-4" /> Voltar para Gestão
                 </Link>
-                <h1 className="text-4xl font-black tracking-tight italic uppercase flex items-center gap-3">
-                    <Zap className="w-8 h-8 neon-text-blue" />
+                <h1 className="text-3xl md:text-4xl font-black tracking-tight italic uppercase flex items-center gap-3">
+                    <Zap className="w-6 h-6 md:w-8 md:h-8 neon-text-blue" />
                     Edificar <span className="text-neon-blue">Novo Fluxo.</span>
                 </h1>
-                <p className="text-white/40 font-medium">Cadastre um novo processo inteligente e defina sua estrutura de documentação técnica.</p>
+                <p className="text-white/40 font-medium text-sm md:text-base">Cadastre um novo processo inteligente e defina sua estrutura de documentação técnica.</p>
             </header>
 
             <form onSubmit={handleSubmit} className="space-y-8">
@@ -145,18 +145,18 @@ export default function NewAutomation() {
                     </div>
                 </div>
 
-                <div className="flex justify-end gap-4">
+                <div className="flex flex-col sm:flex-row justify-end gap-4">
                     <button
                         type="button"
                         onClick={() => router.back()}
-                        className="px-8 py-3 rounded-xl border border-white/5 hover:bg-white/5 transition-all text-sm font-bold uppercase tracking-widest"
+                        className="w-full sm:w-auto px-8 py-3 rounded-xl border border-white/5 hover:bg-white/5 transition-all text-sm font-bold uppercase tracking-widest"
                     >
                         Cancelar
                     </button>
                     <button
                         type="submit"
                         disabled={loading}
-                        className="bg-white text-black font-black px-12 py-3 rounded-xl hover:bg-neon-blue hover:text-white transition-all duration-300 flex items-center gap-2 disabled:opacity-50 uppercase text-xs tracking-widest shadow-xl"
+                        className="w-full sm:w-auto bg-white text-black font-black px-12 py-3 rounded-xl hover:bg-neon-blue hover:text-white transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 uppercase text-xs tracking-widest shadow-xl"
                     >
                         {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5" />}
                         Edificar Processo

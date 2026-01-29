@@ -38,8 +38,8 @@ export default function DashboardOverview() {
     return (
         <div className="space-y-12 font-sans">
             <header className="space-y-4">
-                <h1 className="text-4xl font-black tracking-tight uppercase italic">Visão <span className="text-neon-blue text-5xl">Geral.</span></h1>
-                <p className="text-white/40 leading-relaxed max-w-xl font-medium">
+                <h1 className="text-3xl md:text-4xl font-black tracking-tight uppercase italic">Visão <span className="text-neon-blue text-4xl md:text-5xl">Geral.</span></h1>
+                <p className="text-white/40 leading-relaxed max-w-xl font-medium text-sm md:text-base">
                     Bem-vindo ao centro de comando, Inova TI. O sistema reflete em tempo real o legado digital do Grupo Baptista Leal.
                 </p>
             </header>
@@ -62,7 +62,7 @@ export default function DashboardOverview() {
 
             <div className="glass p-8 rounded-3xl border-white/5 relative overflow-hidden bg-black/20">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-neon-blue/5 blur-3xl pointer-events-none" />
-                <h2 className="text-xl font-bold mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                <h2 className="text-lg md:text-xl font-bold mb-6 flex items-center gap-2 uppercase tracking-tighter">
                     <Activity className="w-5 h-5 text-neon-blue" />
                     Atividade Neural Recente
                 </h2>

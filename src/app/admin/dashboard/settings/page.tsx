@@ -62,16 +62,16 @@ export default function SettingsPage() {
     return (
         <div className="space-y-12 max-w-4xl font-sans">
             <header className="space-y-4">
-                <h1 className="text-4xl font-black tracking-tight uppercase italic">Configurações <span className="text-neon-blue">de Segurança.</span></h1>
-                <p className="text-white/40 leading-relaxed font-medium">
+                <h1 className="text-3xl md:text-4xl font-black tracking-tight uppercase italic">Configurações <span className="text-neon-blue">de Segurança.</span></h1>
+                <p className="text-white/40 leading-relaxed font-medium text-sm md:text-base">
                     Gerencie o acesso à infraestrutura digital da Baptista Leal. Mantenha credenciais fortes para garantir a integridade do hub.
                 </p>
             </header>
 
             {message && (
                 <div className={`p-4 rounded-xl border flex items-center gap-3 animate-in fade-in slide-in-from-top-2 duration-300 ${message.type === 'success'
-                        ? 'bg-neon-green/10 border-neon-green/20 text-neon-green'
-                        : 'bg-neon-pink/10 border-neon-pink/20 text-neon-pink'
+                    ? 'bg-neon-green/10 border-neon-green/20 text-neon-green'
+                    : 'bg-neon-pink/10 border-neon-pink/20 text-neon-pink'
                     }`}>
                     {message.type === 'success' ? <ShieldCheck className="w-5 h-5" /> : <AlertCircle className="w-5 h-5" />}
                     <span className="text-sm font-bold uppercase tracking-tight">{message.text}</span>

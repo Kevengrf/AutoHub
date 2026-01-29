@@ -14,7 +14,7 @@ export async function POST(request: Request) {
 
         const supabase = createClient(supabaseUrl, supabaseServiceRoleKey, {
             auth: {
-                autoConfirmEmail: true,
+                persistSession: false
             }
         })
 
