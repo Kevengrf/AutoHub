@@ -57,7 +57,7 @@ const defaultEdges: Edge[] = [
 
 export default function AutomationFlow({ nodes = defaultNodes, edges = defaultEdges }: FlowchartProps) {
     return (
-        <div className="w-full h-[500px] glass rounded-3xl overflow-hidden neon-border-blue relative">
+        <div className="w-full h-[350px] sm:h-[500px] glass rounded-3xl overflow-hidden neon-border-blue relative">
             <div className="absolute top-4 left-4 z-10">
                 <span className="text-[10px] font-bold tracking-widest text-neon-blue uppercase bg-black/50 px-2 py-1 rounded border border-neon-blue/20">
                     Live Workflow Visualizer
