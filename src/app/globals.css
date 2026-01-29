@@ -1,5 +1,89 @@
 @import "tailwindcss";
 
+@theme {
+  --color-background: #050505;
+  --color-foreground: #ffffff;
+  --color-neon-blue: #00f2ff;
+  --color-neon-purple: #bc13fe;
+  --color-neon-pink: #ff00de;
+  --color-neon-green: #39ff14;
+  --color-glass: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+:root {
+  --background: #050505;
+  --foreground: #ffffff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Futuristic background effect */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(188, 19, 254, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+@layer utilities {
+  .glass {
+    background: var(--color-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--color-glass-border);
+  }
+  
+  .neon-border-blue {
+    border: 1px solid var(--color-neon-blue);
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.2), inset 0 0 10px rgba(0, 242, 255, 0.1);
+  }
+
+  .neon-text-blue {
+    color: var(--color-neon-blue);
+    text-shadow: 0 0 8px rgba(0, 242, 255, 0.5);
+  }
+
+  .neon-glow-purple {
+    box-shadow: 0 0 20px rgba(188, 19, 254, 0.3);
+  }
+}
+
+/* React Flow Customization */
+.react-flow__node {
+  background: rgba(10, 10, 10, 0.8) !important;
+  border: 1px solid rgba(0, 242, 255, 0.3) !important;
+  border-radius: 8px !important;
+  color: white !important;
+  font-size: 12px !important;
+  padding: 10px !important;
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.1) !important;
+}
+
+.react-flow__handle {
+  background: #00f2ff !important;
+  border: none !important;
+}
+
+.react-flow__edge-path {
+  stroke: #00f2ff !important;
+  stroke-width: 2 !important;
+  filter: drop-shadow(0 0 5px rgba(0, 242, 255, 0.5));
+}
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

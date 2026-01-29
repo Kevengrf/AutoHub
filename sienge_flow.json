@@ -1,0 +1,102 @@
+{
+    "nodes": [
+        {
+            "id": "1",
+            "type": "input",
+            "data": {
+                "label": "📁 Start: Select OFX via GUI (Tkinter)"
+            },
+            "position": {
+                "x": 250,
+                "y": 0
+            }
+        },
+        {
+            "id": "2",
+            "data": {
+                "label": "📄 Parse: Bank Data (bank_parser.py)"
+            },
+            "position": {
+                "x": 100,
+                "y": 100
+            }
+        },
+        {
+            "id": "3",
+            "data": {
+                "label": "🌐 Fetch: Sienge API Data (sienge_api.py)"
+            },
+            "position": {
+                "x": 400,
+                "y": 100
+            }
+        },
+        {
+            "id": "4",
+            "data": {
+                "label": "🧠 Match: Decision Engine (matcher.py)"
+            },
+            "position": {
+                "x": 250,
+                "y": 200
+            }
+        },
+        {
+            "id": "5",
+            "data": {
+                "label": "🤖 Act: UI Reconciliation (bot_reconcile.py)"
+            },
+            "position": {
+                "x": 250,
+                "y": 300
+            }
+        },
+        {
+            "id": "6",
+            "type": "output",
+            "data": {
+                "label": "✅ Finish: Sync Complete"
+            },
+            "position": {
+                "x": 250,
+                "y": 400
+            }
+        }
+    ],
+    "edges": [
+        {
+            "id": "e1-2",
+            "source": "1",
+            "target": "2",
+            "animated": true
+        },
+        {
+            "id": "e1-3",
+            "source": "1",
+            "target": "3",
+            "animated": true
+        },
+        {
+            "id": "e2-4",
+            "source": "2",
+            "target": "4"
+        },
+        {
+            "id": "e3-4",
+            "source": "3",
+            "target": "4"
+        },
+        {
+            "id": "e4-5",
+            "source": "4",
+            "target": "5",
+            "animated": true
+        },
+        {
+            "id": "e5-6",
+            "source": "5",
+            "target": "6",
+            "animated": true
+        }
+    ]
+}
