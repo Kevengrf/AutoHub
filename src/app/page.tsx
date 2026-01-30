@@ -13,7 +13,8 @@ export default async function Home() {
   const iconMap: Record<string, string> = {
     'Automação Caixa OFX': '/img/caixaico.png',
     'Conciliação Sienge': '/img/siengeico.png',
-    'Payfy X Sienge': '/img/payfyico.png'
+    'Payfy X Sienge': '/img/payfyico.png',
+    'Auto Título Sienge': '/img/siengeico.png'
   };
 
   // Cores de neon para variedade visual
