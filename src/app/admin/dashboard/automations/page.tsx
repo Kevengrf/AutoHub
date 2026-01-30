@@ -11,10 +11,6 @@ export default function AutomationsManagement() {
     const [deletingId, setDeletingId] = useState<string | null>(null);
     const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
 
-    useEffect(() => {
-        fetchAutomations();
-    }, []);
-
     const fetchAutomations = async () => {
         setLoading(true);
         const { data, error } = await supabase
@@ -25,6 +21,10 @@ export default function AutomationsManagement() {
         if (!error) setAutomations(data || []);
         setLoading(false);
     };
+
+    useEffect(() => {
+        fetchAutomations();
+    }, []);
 
     const handleDelete = async (id: string, name: string) => {
         if (!confirm(`Tem certeza que deseja remover permanentemente a automação "${name}"?`)) return;
@@ -177,8 +177,8 @@ export default function AutomationsManagement() {
                                         <div>
                                             <p className="font-bold text-white uppercase tracking-tight text-sm">{item.name}</p>
                                             <span className={`px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest ${item.status === 'active'
-                                                    ? 'bg-neon-green/10 text-neon-green border border-neon-green/20'
-                                                    : 'bg-white/5 text-white/40 border border-white/10'
+                                                ? 'bg-neon-green/10 text-neon-green border border-neon-green/20'
+                                                : 'bg-white/5 text-white/40 border border-white/10'
                                                 }`}>
                                                 {item.status || 'Active'}
                                             </span>

@@ -1,4 +1,4 @@
-import { Bot, ChevronLeft, ExternalLink, ShieldCheck, Timer, Github } from 'lucide-react';
+import { ChevronLeft, ShieldCheck, Github } from 'lucide-react';
 import Link from 'next/link';
 import AutomationFlow from '@/components/AutomationFlow';
 
@@ -121,7 +121,7 @@ export default function SiengeConciliationPage() {
                     <div className="p-6 glass rounded-2xl border-neon-purple/20 bg-neon-purple/5">
                         <h4 className="text-sm font-bold mb-2">Transformação Digital</h4>
                         <p className="text-white/50 text-xs leading-relaxed">
-                            "Onde cada detalhe é inspirado na sua família. Na TI, edificamos processos que garantem a segurança e transparência dos nossos resultados."
+                            &quot;Onde cada detalhe é inspirado na sua família. Na TI, edificamos processos que garantem a segurança e transparência dos nossos resultados.&quot;
                         </p>
                     </div>
                 </aside>

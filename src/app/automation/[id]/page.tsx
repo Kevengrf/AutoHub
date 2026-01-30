@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import { Bot, ChevronLeft, ExternalLink, ShieldCheck, Timer, Cpu, GitBranch, Terminal } from 'lucide-react';
+import { ChevronLeft, ExternalLink, ShieldCheck, Timer, GitBranch, Terminal, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import AutomationFlow from '@/components/AutomationFlow';
 import { supabase } from '@/lib/supabase';
@@ -11,10 +11,6 @@ export default function AutomationDetail() {
     const { id } = useParams();
     const [automation, setAutomation] = useState<any>(null);
     const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        if (id) fetchAutomation();
-    }, [id]);
 
     const fetchAutomation = async () => {
         const { data, error } = await supabase
@@ -26,6 +22,10 @@ export default function AutomationDetail() {
         if (!error) setAutomation(data);
         setLoading(false);
     };
+
+    useEffect(() => {
+        if (id) fetchAutomation();
+    }, [id]);
 
     if (loading) return (
         <div className="min-h-screen flex items-center justify-center">
@@ -49,8 +49,8 @@ export default function AutomationDetail() {
                 </Link>
                 <div className="flex items-center gap-4">
                     <span className={`text-[10px] font-mono flex items-center gap-1 px-3 py-1 rounded-full border ${automation.status === 'active'
-                            ? 'text-neon-green bg-neon-green/5 border-neon-green/20'
-                            : 'text-white/40 bg-white/5 border-white/10'
+                        ? 'text-neon-green bg-neon-green/5 border-neon-green/20'
+                        : 'text-white/40 bg-white/5 border-white/10'
                         }`}>
                         <ShieldCheck className="w-3 h-3" /> STATUS: {automation.status?.toUpperCase() || 'ACTIVE'}
                     </span>

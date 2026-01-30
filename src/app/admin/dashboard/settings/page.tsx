@@ -52,8 +52,9 @@ export default function SettingsPage() {
             setMessage({ type: 'success', text: `Administrador ${newAdminEmail} criado com sucesso!` });
             setNewAdminEmail('');
             setNewAdminPassword('');
-        } catch (err: any) {
-            setMessage({ type: 'error', text: err.message });
+        } catch (err: unknown) {
+            const error = err as Error;
+            setMessage({ type: 'error', text: error.message });
         } finally {
             setLoadingNewAdmin(false);
         }

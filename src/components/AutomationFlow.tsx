@@ -1,13 +1,10 @@
-'use client';
-
-import React, { useMemo } from 'react';
+import React from 'react';
 import {
     ReactFlow,
     Background,
     Controls,
     Edge,
     Node,
-    Position,
     BackgroundVariant,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';

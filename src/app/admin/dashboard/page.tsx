@@ -13,27 +13,26 @@ export default function DashboardOverview() {
     ]);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        fetchDashboardData();
-    }, []);
-
     const fetchDashboardData = async () => {
         setLoading(true);
         const { count, error } = await supabase
             .from('automations')
             .select('*', { count: 'exact', head: true });
 
-        if (!error) {
-            setStats(prev => prev.map(stat =>
-                stat.label === 'Total de Automações'
-                    ? { ...stat, value: String(count || 0) }
-                    : stat.label === 'Processos Ativos'
-                        ? { ...stat, value: String(count || 0) } // Assuming all are active for now
-                        : stat
+        if (!error && count !== null) {
+            setStats(prev => prev.map(s =>
+                s.label === 'Total de Automações'
+                    ? { ...s, value: count.toString() }
+                    : s
             ));
         }
         setLoading(false);
     };
+
+    useEffect(() => {
+        fetchDashboardData();
+    }, []);
+
 
     return (
         <div className="space-y-12 font-sans">

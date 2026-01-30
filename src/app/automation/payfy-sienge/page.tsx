@@ -1,4 +1,4 @@
-import { Bot, ChevronLeft, ShieldCheck, Timer, Github, CreditCard, Zap } from 'lucide-react';
+import { ChevronLeft, ShieldCheck, Github, CreditCard } from 'lucide-react';
 import Link from 'next/link';
 import AutomationFlow from '@/components/AutomationFlow';
 
@@ -119,7 +119,7 @@ export default function PayfySiengePage() {
                     <div className="p-6 glass rounded-2xl border-neon-pink/20 bg-neon-pink/5">
                         <h4 className="text-sm font-bold mb-2">Conectividade e Evolução</h4>
                         <p className="text-white/50 text-xs leading-relaxed italic">
-                            "Onde cada detalhe é inspirado na sua família. Na Baptista Leal, usamos tecnologia de ponta para edificar processos transparentes e eficientes."
+                            &quot;Onde cada detalhe é inspirado na sua família. Na Baptista Leal, usamos tecnologia de ponta para edificar processos transparentes e eficientes.&quot;
                         </p>
                     </div>
                 </aside>

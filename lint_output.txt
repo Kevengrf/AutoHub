@@ -1,0 +1,139 @@
+
+> autohub@0.1.0 lint
+> eslint
+
+
+/Users/kevenwilliam2015gmail.com/autoHub/src/app/admin/dashboard/automations/page.tsx
+   9:52  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @typescript-eslint/no-explicit-any
+  15:9   error  Error: Cannot access variable before it is declared
+
+`fetchAutomations` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+/Users/kevenwilliam2015gmail.com/autoHub/src/app/admin/dashboard/automations/page.tsx:15:9
+  13 |
+  14 |     useEffect(() => {
+> 15 |         fetchAutomations();
+     |         ^^^^^^^^^^^^^^^^ `fetchAutomations` accessed before it is declared
+  16 |     }, []);
+  17 |
+  18 |     const fetchAutomations = async () => {
+
+/Users/kevenwilliam2015gmail.com/autoHub/src/app/admin/dashboard/automations/page.tsx:18:5
+  16 |     }, []);
+  17 |
+> 18 |     const fetchAutomations = async () => {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 19 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 20 |         const { data, error } = await supabase
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 21 |             .from('automations')
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 22 |             .select('*')
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 23 |             .order('created_at', { ascending: false });
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 24 |
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |         if (!error) setAutomations(data || []);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 26 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 27 |     };
+     | ^^^^^^^ `fetchAutomations` is declared here
+  28 |
+  29 |     const handleDelete = async (id: string, name: string) => {
+  30 |         if (!confirm(`Tem certeza que deseja remover permanentemente a automação "${name}"?`)) return;  react-hooks/immutability
+
+/Users/kevenwilliam2015gmail.com/autoHub/src/app/admin/dashboard/page.tsx
+  17:9  error  Error: Cannot access variable before it is declared
+
+`fetchDashboardData` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+/Users/kevenwilliam2015gmail.com/autoHub/src/app/admin/dashboard/page.tsx:17:9
+  15 |
+  16 |     useEffect(() => {
+> 17 |         fetchDashboardData();
+     |         ^^^^^^^^^^^^^^^^^^ `fetchDashboardData` accessed before it is declared
+  18 |     }, []);
+  19 |
+  20 |     const fetchDashboardData = async () => {
+
+/Users/kevenwilliam2015gmail.com/autoHub/src/app/admin/dashboard/page.tsx:20:5
+  18 |     }, []);
+  19 |
+> 20 |     const fetchDashboardData = async () => {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 21 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 22 |         const { count, error } = await supabase
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 35 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 36 |     };
+     | ^^^^^^^ `fetchDashboardData` is declared here
+  37 |
+  38 |     return (
+  39 |         <div className="space-y-12 font-sans">  react-hooks/immutability
+
+/Users/kevenwilliam2015gmail.com/autoHub/src/app/admin/dashboard/settings/page.tsx
+  55:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/kevenwilliam2015gmail.com/autoHub/src/app/admin/page.tsx
+  6:46  warning  'ImageIcon' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/kevenwilliam2015gmail.com/autoHub/src/app/api/create-admin/route.ts
+  32:14  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+  32:19  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/kevenwilliam2015gmail.com/autoHub/src/app/automation/[id]/page.tsx
+   5:10  warning  'Bot' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+   5:62  warning  'Cpu' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+  12:50  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-explicit-any
+  16:17  error    Error: Cannot access variable before it is declared
+
+`fetchAutomation` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+/Users/kevenwilliam2015gmail.com/autoHub/src/app/automation/[id]/page.tsx:16:17
+  14 |
+  15 |     useEffect(() => {
+> 16 |         if (id) fetchAutomation();
+     |                 ^^^^^^^^^^^^^^^ `fetchAutomation` accessed before it is declared
+  17 |     }, [id]);
+  18 |
+  19 |     const fetchAutomation = async () => {
+
+/Users/kevenwilliam2015gmail.com/autoHub/src/app/automation/[id]/page.tsx:19:5
+  17 |     }, [id]);
+  18 |
+> 19 |     const fetchAutomation = async () => {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 20 |         const { data, error } = await supabase
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 21 |             .from('automations')
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 22 |             .select('*')
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 23 |             .eq('id', id)
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 24 |             .single();
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 26 |         if (!error) setAutomation(data);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 27 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 28 |     };
+     | ^^^^^^^ `fetchAutomation` is declared here
+  29 |
+  30 |     if (loading) return (
+  31 |         <div className="min-h-screen flex items-center justify-center">  react-hooks/immutability
+  17:8   warning  React Hook useEffect has a missing dependency: 'fetchAutomation'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           react-hooks/exhaustive-deps
+
+/Users/kevenwilliam2015gmail.com/autoHub/src/app/automation/caixa/page.tsx
+  3:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 13 problems (7 errors, 6 warnings)
+

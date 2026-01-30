@@ -1,6 +1,5 @@
-import { Bot, ChevronLeft, ExternalLink, ShieldCheck, Timer, Github, Cpu } from 'lucide-react';
+import { ChevronLeft, ShieldCheck, Github } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 import AutomationFlow from '@/components/AutomationFlow';
 
 export default function CaixaAutomationPage() {
@@ -121,7 +120,7 @@ export default function CaixaAutomationPage() {
                     <div className="p-6 glass rounded-2xl border-neon-blue/20 bg-neon-blue/5">
                         <h4 className="text-sm font-bold mb-2">Inova TI</h4>
                         <p className="text-white/50 text-xs leading-relaxed">
-                            "Edificando processos, construindo eficiência. Esta automação faz parte do projeto de Transformação Digital da Baptista Leal."
+                            &quot;Edificando processos, construindo eficiência. Esta automação faz parte do projeto de Transformação Digital da Baptista Leal.&quot;
                         </p>
                     </div>
                 </aside>
