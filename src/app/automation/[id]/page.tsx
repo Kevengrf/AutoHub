@@ -2,28 +2,29 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import { ChevronLeft, ExternalLink, ShieldCheck, Timer, GitBranch, Terminal, Loader2 } from 'lucide-react';
+import { ChevronLeft, ExternalLink, ShieldCheck, Timer, GitBranch, Terminal } from 'lucide-react';
 import Link from 'next/link';
 import AutomationFlow from '@/components/AutomationFlow';
 import { supabase } from '@/lib/supabase';
 
 export default function AutomationDetail() {
     const { id } = useParams();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [automation, setAutomation] = useState<any>(null);
     const [loading, setLoading] = useState(true);
 
-    const fetchAutomation = async () => {
-        const { data, error } = await supabase
-            .from('automations')
-            .select('*')
-            .eq('id', id)
-            .single();
-
-        if (!error) setAutomation(data);
-        setLoading(false);
-    };
-
     useEffect(() => {
+        const fetchAutomation = async () => {
+            const { data, error } = await supabase
+                .from('automations')
+                .select('*')
+                .eq('id', id)
+                .single();
+
+            if (!error) setAutomation(data);
+            setLoading(false);
+        };
+
         if (id) fetchAutomation();
     }, [id]);
 

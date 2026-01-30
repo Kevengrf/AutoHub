@@ -1,17 +1,18 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Cpu, Trash2, ExternalLink, RefreshCw, Loader2, AlertTriangle, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 
 export default function AutomationsManagement() {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [automations, setAutomations] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [deletingId, setDeletingId] = useState<string | null>(null);
     const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
 
-    const fetchAutomations = async () => {
+    const fetchAutomations = useCallback(async () => {
         setLoading(true);
         const { data, error } = await supabase
             .from('automations')
@@ -20,11 +21,12 @@ export default function AutomationsManagement() {
 
         if (!error) setAutomations(data || []);
         setLoading(false);
-    };
+    }, []);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         fetchAutomations();
-    }, []);
+    }, [fetchAutomations]);
 
     const handleDelete = async (id: string, name: string) => {
         if (!confirm(`Tem certeza que deseja remover permanentemente a automação "${name}"?`)) return;

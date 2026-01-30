@@ -13,23 +13,23 @@ export default function DashboardOverview() {
     ]);
     const [loading, setLoading] = useState(true);
 
-    const fetchDashboardData = async () => {
-        setLoading(true);
-        const { count, error } = await supabase
-            .from('automations')
-            .select('*', { count: 'exact', head: true });
-
-        if (!error && count !== null) {
-            setStats(prev => prev.map(s =>
-                s.label === 'Total de Automações'
-                    ? { ...s, value: count.toString() }
-                    : s
-            ));
-        }
-        setLoading(false);
-    };
-
     useEffect(() => {
+        const fetchDashboardData = async () => {
+            setLoading(true);
+            const { count, error } = await supabase
+                .from('automations')
+                .select('*', { count: 'exact', head: true });
+
+            if (!error && count !== null) {
+                setStats(prev => prev.map(s =>
+                    s.label === 'Total de Automações'
+                        ? { ...s, value: count.toString() }
+                        : s
+                ));
+            }
+            setLoading(false);
+        };
+
         fetchDashboardData();
     }, []);
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { ChevronLeft, ShieldCheck, Github, FileText, Database, ScanLine, BrainCircuit, Server, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ShieldCheck, Github, Database, ScanLine, BrainCircuit } from 'lucide-react';
 import Link from 'next/link';
 import AutomationFlow from '@/components/AutomationFlow';
 
@@ -100,7 +100,7 @@ export default function AutoTituloSiengePage() {
                             <ul className="list-disc pl-5 space-y-4 marker:text-neon-green">
                                 <li><strong>OCR Híbrido</strong>: Combinação de Tesseract e Ghostscript para ler tanto PDFs nativos quanto escaneados.</li>
                                 <li><strong>Inteligência Regex</strong>: Padrões determinísticos para extração de CNPJ, Datas e Valores com alta precisão.</li>
-                                <li><strong>Database Auxiliar</strong>: MySQL intermediário para mapeamento "De-Para" de Fornecedores e Centros de Custo.</li>
+                                <li><strong>Database Auxiliar</strong>: MySQL intermediário para mapeamento &quot;De-Para&quot; de Fornecedores e Centros de Custo.</li>
                                 <li><strong>Integração Sienge</strong>: Full API REST para criação de títulos (`POST /bills`) e anexos.</li>
                             </ul>
                         </div>
